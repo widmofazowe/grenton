@@ -9,7 +9,27 @@ Longitude: 18.938
 
 ![Google Maps URL](google-maps.png "Coordinates using google maps")
 
-4. In GateHTTP create HttpRequest object with following parameters:
+4. In GateHTTP create following properties:
+- airly_pm1
+- airly_pm25
+- airly_pm10
+- airly_till
+- airly_description
+
+![GateHttp airly properties](gate-properties.png "GateHttp airly properties")
+
+5. In GateHTTPreate a script `Airly_Response` to parse api response and store in http gate properties:
+```
+local resp = GATE_HTTP->Airly->ResponseBody
+
+GATE_HTTP->airly_till = resp.current.tillDateTime
+GATE_HTTP->airly_pm1 = resp.current.values[1].value
+GATE_HTTP->airly_pm25 = resp.current.values[2].value
+GATE_HTTP->airly_pm10 = resp.current.values[3].value
+GATE_HTTP->airly_description = resp.current.indexes[1].description
+```
+
+6. In GateHTTP create HttpRequest object named `Airly` with following parameters:
 - Host: `https://airapi.airly.eu`
 - Path: `/v2/measurements/nearest`
 - QueryStringParams: `indexType=AIRLY_CAQI&lat=50.127&lng=18.938&maxDistanceKM=3` with your own coordinates (lat/lng)
@@ -20,7 +40,11 @@ Longitude: 18.938
 
 ![HttpRequest object](http-request.png "HttpRequest object in grenton")
 
-5. In GateHTTP create Timer object:
-- properties:
+7. Attach script as an event on response to update properties once we receive correct response from API
+![Airly response event](airly-response.png "Airly response event")
+
+8. In GateHTTP create Timer object in order to update air condition properties on a regular basis. Here once per hour:
 ![Timer properties](timer-properties.png "Timer properties")
 ![Timer events](timer-events.png "Timer events")
+
+
