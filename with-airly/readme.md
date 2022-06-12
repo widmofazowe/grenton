@@ -36,7 +36,7 @@ GATE_HTTP->airly_description = resp.current.indexes[1].description
 - Method: `GET`
 - RequestType: `JSON`
 - ResponseType: `JSON`
-- RequestHeaders: `apikey: YOU_API_KEY\r\nAccept-Language: pl` and replace YOU_API_KEY with your own api airly key
+- RequestHeaders: `apikey: YOUR_API_KEY\r\nAccept-Language: pl` and replace YOUR_API_KEY with your own api airly key
 
 ![HttpRequest object](http-request.png "HttpRequest object in grenton")
 
