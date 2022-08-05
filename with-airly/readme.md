@@ -18,7 +18,7 @@ Longitude: 18.938
 
 ![GateHttp airly properties](gate-properties.png "GateHttp airly properties")
 
-5. In GateHTTPreate a script `Airly_Response` to parse api response and store in http gate properties:
+5. In GateHTTP create a script `Airly_Response` to parse api response and store in http gate properties:
 ```
 local resp = GATE_HTTP->Airly->ResponseBody
 

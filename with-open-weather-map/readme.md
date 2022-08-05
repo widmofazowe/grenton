@@ -17,7 +17,7 @@ Longitude: 18.938
 - owm_sunset
 - owm_timezone
 
-5. In GateHTTPreate a script `OWP_Response` to parse api response and store in http gate properties:
+5. In GateHTTP create a script `OWP_Response` to parse api response and store in http gate properties:
 ```
 local resp = GATE_HTTP->Open_Weather_Map->ResponseBody
 

@@ -1,0 +1,15 @@
+{
+  "name": "with-roborock",
+  "version": "1.0.0",
+  "main": "roborock-server.js",
+  "scripts": {
+    "start": "node roborock-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "miio": "git+https://github.com/widmofazowe/miio.git"
+  }
+}
