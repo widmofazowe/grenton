@@ -15,7 +15,8 @@ else
 end
 if (qspId == "kitchen") then
 	CLU->Kitchen_Lights->SetValue(value)
-elseif (qspId == "coffee") then
+end
+if (qspId == "coffee") then
 	CLU->Coffee_Lights->SetValue(value)
 end
 ```
